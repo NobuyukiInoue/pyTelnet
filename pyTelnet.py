@@ -95,7 +95,7 @@ def decode(current_output):
             continue
     return decoded_current_output
 
-def set_output_filename(cn, logdir_path):
+def set_output_filename(cn: ConnectionInformation, logdir_path: str) -> str:
     """
     set log output filename.
     """
@@ -110,7 +110,7 @@ def set_output_filename(cn, logdir_path):
 
     return output_filename
 
-def remove_prohibited_characters(target_str):
+def remove_prohibited_characters(target_str:str) -> str:
     """
     Remove prohibited characters.
     """
@@ -126,7 +126,7 @@ def remove_prohibited_characters(target_str):
 
     return result_str
 
-def telnet_read_eager(tn, wf, current_output_log, enable_removeLF):
+def telnet_read_eager(tn: ConnectionInformation, wf: object, current_output_log: [str], enable_removeLF: bool) -> str:
     """
     Dealing with unread material.
     """
@@ -147,7 +147,7 @@ def telnet_read_eager(tn, wf, current_output_log, enable_removeLF):
             print_and_write(decoded_current_output, wf, string_remove = "")
     return decoded_current_output
 
-def print_and_write(outputString, wf, string_remove = ""):
+def print_and_write(outputString: str, wf: object, string_remove = ""):
     """
     Write to stdout and file.
     """
@@ -162,7 +162,7 @@ def print_and_write(outputString, wf, string_remove = ""):
             print("\n{0}e".format(e))
         #   wf.write(e)
 
-def client_telnet(cn, disable_log_output, logdir_path):
+def client_telnet(cn: ConnectionInformation, disable_log_output: bool, logdir_path: str):
     """
     Execute command list(TELNET)
     """
@@ -221,7 +221,7 @@ def client_telnet(cn, disable_log_output, logdir_path):
 
     return
 
-def client_ssh(cn, disable_log_output, logdir_path):
+def client_ssh(cn: ConnectionInformation, disable_log_output, logdir_path):
     """
     Execute command list(SSH)
     """
